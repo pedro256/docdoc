@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  postgres:
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    container_name: app_container
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: my_database
+
+volumes:
+  postgres_data:
+    driver: local
