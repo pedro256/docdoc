@@ -4,7 +4,7 @@ FROM postgres:15
 # Set environment variables for PostgreSQL
 ENV POSTGRES_USER=admin
 ENV POSTGRES_PASSWORD=admin
-ENV POSTGRES_DB=my_database
+ENV POSTGRES_DB=docdoc_database
 
 # Expose the PostgreSQL port
 EXPOSE 5432
