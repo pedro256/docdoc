@@ -11,3 +11,8 @@ EXPOSE 5432
 
 # Use the default PostgreSQL entrypoint
 CMD ["postgres"]
+
+
+#example:
+#docker build -t postgres-15 .
+#docker run -d --name docdocdb -p 5344:5432 postgres-15 
