@@ -1,11 +1,11 @@
 import ApiService from "@/helpers/ApiService";
-import { IProjectItem } from "@/mocks/ListProjects";
+import { IRealmsItem } from "@/mocks/ListMyRealms";
 import { IoDocumentTextOutline } from "react-icons/io5";
 
-export default async function ListMyProjects() {
+export default async function ListMyRealms() {
     const api = new ApiService()
     api.setToken("w")
-    const response: IProjectItem[] = await api.get("/projects/my")
+    const response: IRealmsItem[] = await api.get("/realms/my")
     return (
         <div className="h-full overflow-auto rounded p-2 shadow border-r-2">
             {response.map(i => (

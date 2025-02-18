@@ -1,4 +1,4 @@
-import ListProjects from "@/mocks/ListProjects"
+import ListProjects from "@/mocks/ListMyRealms"
 import { cookies, headers } from "next/headers"
 import { NextRequest } from "next/server"
 

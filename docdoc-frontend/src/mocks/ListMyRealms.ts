@@ -1,4 +1,4 @@
-export interface IProjectItem{
+export interface IRealmsItem{
     id:string,
     name:string,
     description:string
@@ -72,4 +72,4 @@ export default  [
         description:"descrição brava",
         name:"Projeto SXX001"
     }
-] as IProjectItem[]
+] as IRealmsItem[]
