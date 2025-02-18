@@ -10,8 +10,24 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
+			primary:{
+				DEFAULT: '#18315B',
+				100:'#091b3980',
+				800: '#18315B',
+				900: '#091B39',
+				foreground:'#fafbfc'
+			},
+	
+			background_2: {
+				DEFAULT:'#fafbfc',
+				foreground:'#091423'
+			},
+			background:{
+				DEFAULT:'#e9ebf2',
+				foreground:'#111'
+			},
+  			foreground: '#111',
+			foreground_2: '#091423',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
@@ -19,10 +35,6 @@ const config: Config = {
   			popover: {
   				DEFAULT: 'hsl(var(--popover))',
   				foreground: 'hsl(var(--popover-foreground))'
-  			},
-  			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
   			},
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',
