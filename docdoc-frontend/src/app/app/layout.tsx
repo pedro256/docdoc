@@ -1,4 +1,4 @@
-import MainHeader from "@/components/headers/MainHeader"
+import NavHeader from "@/components/headers/NavHeader"
 
 export default function LayoutApp({
     children
@@ -7,11 +7,14 @@ export default function LayoutApp({
 }) {
     return (
         <>
-            <MainHeader />
-            <main className="px-4 pt-2 pb-8">
+            <div className="flex">
 
-                {children}
-            </main>
+                <NavHeader />
+                <main className="px-4 pt-2 pb-8">
+
+                    {children}
+                </main>
+            </div>
         </>
     )
 }

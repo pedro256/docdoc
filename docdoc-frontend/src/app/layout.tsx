@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Lato} from 'next/font/google';
 import "./globals.css";
+import { Tooltip } from "react-tooltip";
+import TooltipHandler from "@/components/tooltip-handler/TooltipHandler";
 
 const lato = Lato({ 
   subsets: ['latin'],
@@ -26,6 +28,7 @@ export default function RootLayout({
         className={`${lato.className}  antialiased`}
       >
         {children}
+        <TooltipHandler/>
       </body>
     </html>
   );
