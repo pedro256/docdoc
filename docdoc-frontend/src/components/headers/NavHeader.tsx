@@ -4,7 +4,9 @@ import "./styles.css";
 
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
-import { IoGitNetwork, IoLogOutOutline } from "react-icons/io5";
+import { IoGitNetwork } from "react-icons/io5";
+import { IoMdSettings } from "react-icons/io";
+
 import { FiFilePlus } from "react-icons/fi";
 import { FaCashRegister, FaCode, FaList, FaRegFile } from "react-icons/fa";
 
@@ -41,7 +43,7 @@ export default function NavHeader() {
           ))}
         </div>
         <div>
-          <IoLogOutOutline className="w-10 h-10" />
+          <IoMdSettings className="w-10 h-10" />
         </div>
       </div>
 
