@@ -13,6 +13,7 @@ const config: Config = {
 			primary:{
 				DEFAULT: '#18315B',
 				100:'#091b3980',
+				700:'#2C497B',
 				800: '#18315B',
 				900: '#091B39',
 				foreground:'#fafbfc'
@@ -70,6 +71,5 @@ const config: Config = {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
 };
 export default config;
