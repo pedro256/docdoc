@@ -23,10 +23,10 @@ export default function NavHeader() {
   return (
     <div className="flex h-screen">
       {/* Barra Lateral */}
-      <div className="w-24 flex flex-col items-center justify-between bg-primary py-4 gap-2 text-primary-foreground">
+      <div className="w-12 flex flex-col items-center justify-between bg-primary py-4 gap-2 text-primary-foreground">
         <div className="flex flex-col items-center gap-12">
           <div className="mb-8">
-            <div className="w-12 h-12 border rounded-full bg-white"></div>
+            <div className="w-8 h-8 border rounded-full bg-white"></div>
           </div>
 
           {navRoutes.map((nav) => (

@@ -16,7 +16,7 @@ const navRoutes: Array<NavItem> = [
       <FiFilePlus
         data-tooltip-id="basic"
         data-tooltip-content="Novos Documentos"
-        className="w-10 h-10 focus:outline-0"
+        className="w-8 h-8 focus:outline-0"
       />
     ),
   },
@@ -27,7 +27,7 @@ const navRoutes: Array<NavItem> = [
       <FaObjectGroup
         data-tooltip-id="basic"
         data-tooltip-content="Domínio"
-        className="w-10 h-10 focus:outline-0"
+        className="w-8 h-8 focus:outline-0"
       />
     ),
   },
@@ -38,7 +38,7 @@ const navRoutes: Array<NavItem> = [
       <IoDocumentTextOutline
         data-tooltip-id="basic"
         data-tooltip-content="Documentos"
-        className="w-10 h-10 focus:outline-0"
+        className="w-8 h-8 focus:outline-0"
       />
     ),
   },
@@ -49,7 +49,7 @@ const navRoutes: Array<NavItem> = [
       <FaShareAlt
         data-tooltip-id="basic"
         data-tooltip-content="Compartilhados"
-        className="w-10 h-10 focus:outline-0"
+        className="w-8 h-8 focus:outline-0"
       />
     ),
   },
