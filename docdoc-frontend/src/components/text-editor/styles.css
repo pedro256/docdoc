@@ -1,0 +1,43 @@
+.text-editor .tiptap.ProseMirror:focus-visible{
+    outline: none;
+}
+.text-editor .tiptap{
+    padding: 1rem;
+}
+.text-editor .tiptap p{
+    font-size: 1rem;
+}
+.text-editor .tiptap h1{
+    font-size: 2em;
+}
+.text-editor .tiptap h2{
+    font-size: 1.5em;
+}
+.text-editor .tiptap h3{
+    font-size: 1.17em;
+}
+.text-editor .tiptap h4{
+    font-size: 1em;
+}
+.text-editor .tiptap h5{
+    font-size: 0.83em;
+}
+.text-editor .tiptap h6{
+    font-size: 0.75em;
+}
+.text-editor .tiptap ul{
+    margin-left: 0.75rem;
+}
+.text-editor .tiptap ul,ol {
+    margin-left: 1rem;
+}
+.text-editor .tiptap ul li{
+    list-style: circle;
+}
+.text-editor .tiptap ol li{
+    list-style: decimal;
+}
+.text-editor .tiptap blockquote{
+    border-left: 3px solid rgba(60, 62, 77, 0.664);
+    padding-left: 0.75rem;
+}

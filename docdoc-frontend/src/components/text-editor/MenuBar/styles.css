@@ -1,0 +1,27 @@
+.control-group{
+    background-color: #f3f3f3;
+    display: flex;
+    padding: 0.5rem;
+    border: 1px solid #9e9e9e;
+}
+.button-group{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.button-group section.item{
+    padding: 0.5rem;
+}
+.button-group button.item{
+    padding: 0.5rem;
+    
+}
+.button-group button.item.is-active{
+    background-color: #3f3f3f;
+    color: rgb(243, 243, 243);
+    border-radius: 0.25rem;
+}
+.button-group button.item:hover{
+    background-color: #c4c4c47c;
+    color: black;
+}
