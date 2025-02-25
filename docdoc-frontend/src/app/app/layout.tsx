@@ -7,10 +7,10 @@ export default function LayoutApp({
 }) {
     return (
         <>
-            <div className="flex">
+            <div className="flex w-full">
 
                 <NavHeader />
-                <main className="px-4 pt-2 pb-8">
+                <main className="px-4 pt-2 pb-8 w-full">
 
                     {children}
                 </main>

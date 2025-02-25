@@ -1,0 +1,28 @@
+.a4-preview {
+    width: 2480px;
+    height: 3508px;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: top left;
+    transform: scale(1);
+    /* Ajuste inicial para caber na tela */
+}
+
+.a4-content {
+    width: 100%;
+    height: 100%;
+    padding: 20mm;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .a4-preview {
+        transform: scale(0.15);
+        /* Reduz mais em telas menores */
+    }
+}
