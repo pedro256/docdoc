@@ -34,11 +34,11 @@ export default function CreateNewDocument() {
             <div>Ajuda</div>
           </div>
           <div className="editor_area_items">
-            <TextEditor onChange={(v) => setDocument(v)} content={document} />
+            <TextEditor />
           </div>
-          <code className="text-xs bg-gray-900 text-white py-1 px-2 rounded">
+          {/* <code className="text-xs bg-gray-900 text-white py-1 px-2 rounded">
             {document}
-          </code>
+          </code> */}
         </div>
         <div className="w-1/3 border relative">
           <h1 className="text-center text-sm py-2">Pré-visualização</h1>
