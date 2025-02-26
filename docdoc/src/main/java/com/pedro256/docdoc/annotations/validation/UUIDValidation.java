@@ -28,7 +28,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Constraint(validatedBy = {})
 @Documented
 public @interface UUIDValidation {
-    String message() default "UUID has wrong format";
+    String message() default "Id incorreto";
 
     Class<?>[] groups() default {};
 
