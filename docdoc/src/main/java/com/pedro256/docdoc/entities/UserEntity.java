@@ -1,9 +1,6 @@
 package com.pedro256.docdoc.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -19,6 +16,7 @@ public class UserEntity {
 
     private UUID id;
     private String name;
+    @Column(unique=true)
     private String username;
     @CreationTimestamp
     private Date createdAt;

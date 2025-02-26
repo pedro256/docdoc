@@ -45,10 +45,11 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(BadRequestException.class)
     public ResponseEntity<ExceptionResponseDto> BadRequestException(BadRequestException e){
+        ExceptionResponseDto resp =new ExceptionResponseDto();
+        resp.setMessage(e.getMessage());
+        resp.setHttpCode(HttpStatus.BAD_REQUEST);
 
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
-                new ExceptionResponseDto(e.getMessage(),HttpStatus.BAD_REQUEST)
-        );
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
