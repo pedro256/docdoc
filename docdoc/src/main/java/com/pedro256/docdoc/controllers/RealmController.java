@@ -1,6 +1,7 @@
 package com.pedro256.docdoc.controllers;
 
 import com.pedro256.docdoc.annotations.validation.UUIDValidation;
+import com.pedro256.docdoc.dto.realms.RealmDto;
 import com.pedro256.docdoc.dto.realms.RealmItemDto;
 import com.pedro256.docdoc.dto.requests.UpdateRealmReqDto;
 import com.pedro256.docdoc.exceptions.NotFoundException;
@@ -57,9 +58,16 @@ public class RealmController {
         return null;
     }
 
+    @DeleteMapping("/{id}")
     public ResponseEntity deleteById(@PathVariable @UUIDValidation String id){
         this.realmService.deleteRealm(UUID.fromString(id));
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity getOnById(@PathVariable @UUIDValidation String id) throws NotFoundException {
+        RealmDto realmDto = this.realmService.getOneById(UUID.fromString(id));
+        return ResponseEntity.ok(realmDto);
     }
 
 
