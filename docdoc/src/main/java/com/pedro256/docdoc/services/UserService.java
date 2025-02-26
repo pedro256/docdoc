@@ -20,7 +20,7 @@ public class UserService {
     private IUserRepository iUserRepository;
 
     public UUID createUser(UserDto dto) throws BadRequestException {
-        if(this.iUserRepository.existsByUserName(dto.getUsername())){
+        if(this.iUserRepository.existsByUsername(dto.getUsername())){
             throw new BadRequestException("usuario já informado !");
         }
         UserEntity entity = new UserEntity();

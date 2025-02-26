@@ -1,12 +1,15 @@
 package com.pedro256.docdoc.controllers;
 
+import com.pedro256.docdoc.annotations.validation.UUIDValidation;
 import com.pedro256.docdoc.dto.realms.RealmItemDto;
 import com.pedro256.docdoc.dto.requests.UpdateRealmReqDto;
 import com.pedro256.docdoc.exceptions.NotFoundException;
 import com.pedro256.docdoc.entities.RealmEntity;
 import com.pedro256.docdoc.repository.realm.IRealmRepository;
+import com.pedro256.docdoc.services.RealmService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -20,9 +23,11 @@ public class RealmController {
 
     @Autowired
     private IRealmRepository realmRepository;
+    @Autowired
+    private RealmService realmService;
 
     @PostMapping
-    public RealmEntity createProduct(@RequestBody RealmEntity realmEntity) {
+    public RealmEntity createRealm(@RequestBody RealmEntity realmEntity) {
         return realmRepository.save(realmEntity);
     }
     @GetMapping
@@ -50,6 +55,11 @@ public class RealmController {
 
         realmRepository.save(realm);
         return null;
+    }
+
+    public ResponseEntity deleteById(@PathVariable @UUIDValidation String id){
+        this.realmService.deleteRealm(UUID.fromString(id));
+        return ResponseEntity.noContent().build();
     }
 
 

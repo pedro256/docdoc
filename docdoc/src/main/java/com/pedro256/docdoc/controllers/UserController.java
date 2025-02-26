@@ -30,7 +30,7 @@ public class UserController {
     @PutMapping
     public ResponseEntity updateUser(@Valid @RequestBody UpdateUserReqDto request) {
         UserDto user = new UserDto();
-        user.setUsername(request.username);
+//        user.setUsername(request.username);
         user.setName(request.name);
         user.setId(UUID.fromString(request.id));
         userService.updateUser(user);

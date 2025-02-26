@@ -32,7 +32,7 @@ public class GlobalExceptionHandler {
         resp.setMessage(e.getMessage());
         resp.setHttpCode(HttpStatus.NOT_FOUND);
 
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(resp);
     }
 
     @ExceptionHandler(HttpClientErrorException.Forbidden.class)
@@ -49,7 +49,7 @@ public class GlobalExceptionHandler {
         resp.setMessage(e.getMessage());
         resp.setHttpCode(HttpStatus.BAD_REQUEST);
 
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resp);
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
