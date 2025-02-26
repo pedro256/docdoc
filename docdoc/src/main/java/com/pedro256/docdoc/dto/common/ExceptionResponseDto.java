@@ -1,20 +1,20 @@
-package com.pedro256.docdoc.dto;
+package com.pedro256.docdoc.dto.common;
 
+import lombok.Data;
 import org.springframework.http.HttpStatus;
 
-import java.util.Optional;
-
-public class ExceptionDto {
+@Data
+public class ExceptionResponseDto {
     private Integer code;
     private HttpStatus httpCode;
     private String message;
 
-    public ExceptionDto(){
+    public ExceptionResponseDto(){
         this.code = 0;
         this.httpCode=HttpStatus.INTERNAL_SERVER_ERROR;
         this.message="Error !";
     }
-    public ExceptionDto(String message, HttpStatus httpCode){
+    public ExceptionResponseDto(String message, HttpStatus httpCode){
         this.code =0;
         this.httpCode = httpCode;
         this.message = message;

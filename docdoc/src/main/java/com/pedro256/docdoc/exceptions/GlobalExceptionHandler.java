@@ -1,6 +1,6 @@
 package com.pedro256.docdoc.exceptions;
 
-import com.pedro256.docdoc.dto.ExceptionDto;
+import com.pedro256.docdoc.dto.common.ExceptionResponseDto;
 import jakarta.validation.ValidationException;
 import org.apache.coyote.BadRequestException;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -17,51 +17,61 @@ import java.util.Map;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-    @ExceptionHandler(HttpClientErrorException.NotFound.class)
-    public ResponseEntity<ExceptionDto> NotFoundException(HttpClientErrorException.NotFound e){
 
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                new ExceptionDto(e.getMessage(),HttpStatus.NOT_FOUND)
-        );
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<ExceptionResponseDto> NotFoundException(NotFoundException e){
+        ExceptionResponseDto resp =new ExceptionResponseDto();
+        resp.setMessage(e.getMessage());
+        resp.setHttpCode(HttpStatus.NOT_FOUND);
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(resp);
+    }
+    @ExceptionHandler(HttpClientErrorException.NotFound.class)
+    public ResponseEntity<ExceptionResponseDto> NotFoundException(HttpClientErrorException.NotFound e){
+        ExceptionResponseDto resp =new ExceptionResponseDto();
+        resp.setMessage(e.getMessage());
+        resp.setHttpCode(HttpStatus.NOT_FOUND);
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
     }
 
     @ExceptionHandler(HttpClientErrorException.Forbidden.class)
-    public ResponseEntity<ExceptionDto> ForbiddenException(HttpClientErrorException.Forbidden e){
+    public ResponseEntity<ExceptionResponseDto> ForbiddenException(HttpClientErrorException.Forbidden e){
 
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(
-                new ExceptionDto(e.getMessage(),HttpStatus.FORBIDDEN)
+                new ExceptionResponseDto(e.getMessage(),HttpStatus.FORBIDDEN)
         );
     }
 
     @ExceptionHandler(BadRequestException.class)
-    public ResponseEntity<ExceptionDto> BadRequestException(BadRequestException e){
+    public ResponseEntity<ExceptionResponseDto> BadRequestException(BadRequestException e){
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
-                new ExceptionDto(e.getMessage(),HttpStatus.BAD_REQUEST)
+                new ExceptionResponseDto(e.getMessage(),HttpStatus.BAD_REQUEST)
         );
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<ExceptionDto> IllegalArgumentException(IllegalArgumentException e){
+    public ResponseEntity<ExceptionResponseDto> IllegalArgumentException(IllegalArgumentException e){
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
-                new ExceptionDto(e.getMessage(),HttpStatus.BAD_REQUEST)
+                new ExceptionResponseDto(e.getMessage(),HttpStatus.BAD_REQUEST)
         );
     }
 
     @ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity<ExceptionDto> DataIntegrityViolationException(DataIntegrityViolationException e){
+    public ResponseEntity<ExceptionResponseDto> DataIntegrityViolationException(DataIntegrityViolationException e){
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
-                new ExceptionDto(e.getMessage(),HttpStatus.BAD_REQUEST)
+                new ExceptionResponseDto(e.getMessage(),HttpStatus.BAD_REQUEST)
         );
     }
 
     @ExceptionHandler(ValidationException.class)
-    public ResponseEntity<ExceptionDto> ViolationException(ValidationException e){
+    public ResponseEntity<ExceptionResponseDto> ViolationException(ValidationException e){
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
-                new ExceptionDto(e.getMessage(),HttpStatus.BAD_REQUEST)
+                new ExceptionResponseDto(e.getMessage(),HttpStatus.BAD_REQUEST)
         );
     }
 
