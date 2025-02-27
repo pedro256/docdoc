@@ -50,4 +50,13 @@ public class DocPartService {
         this.iDocPartRepository.save(documentPartEntity);
         return  null;
     }
+
+    public Void updateContentDocumentPart(DocumentPartDto documentPartDto){
+        DocumentPartEntity documentPartEntity = new DocumentPartEntity();
+        documentPartEntity.setId(documentPartDto.getId());
+        documentPartEntity.setConteudoByStr(documentPartDto.getContent());
+        this.iDocPartRepository.save(documentPartEntity);
+        return  null;
+    }
+
 }

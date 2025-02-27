@@ -10,6 +10,7 @@ import com.pedro256.docdoc.exceptions.NotFoundException;
 import com.pedro256.docdoc.services.DocBaseService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +31,7 @@ public class DocumentBAseController {
         UUID id =  docBaseService.createDocumentBase(documentBaseDto);
         HashMap<String, Object> resp = new HashMap<>();
         resp.put("id",id);
-        return ResponseEntity.ok(resp);
+        return ResponseEntity.status(HttpStatus.CREATED).body(resp);
     }
     @PutMapping
     public ResponseEntity updateDocuments(@Valid @RequestBody UpdateDocBaseRefDto docBaseReqDto) {
