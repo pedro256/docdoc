@@ -1,6 +1,6 @@
 "use client";
 
-import { EditorProvider } from "@tiptap/react";
+import { Editor, EditorProvider } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 
 import { Color } from "@tiptap/extension-color";
@@ -9,10 +9,13 @@ import TextStyle from "@tiptap/extension-text-style";
 
 import "./styles.css";
 import MenuBarEditText from "./MenuBar/MenuBar";
+import lodash from "lodash";
+// import { useCallback } from "react";
 
 
 interface IPropsTextEditor{
     onChange?:(value?:string)=>void,
+    onChangeData?:(value?:string)=>void
     content?:string
 }
 export default function TextEditor({
@@ -34,6 +37,13 @@ export default function TextEditor({
     }),
   ];
 
+  const handleUpdate = lodash.debounce((editor:Editor) => {
+    if (onChange) {
+      console.log("vamo ver qual é a boa")
+      onChange(JSON.stringify(editor.getJSON()));
+    }
+  }, 500);
+
   return (
     <div className="bg-white border rounded text-editor">
       <EditorProvider
@@ -41,10 +51,11 @@ export default function TextEditor({
         extensions={extensions}
         content={content}
         immediatelyRender={false}
-        onUpdate={({editor})=>{
-            if(onChange)
-            onChange(JSON.stringify(editor.getJSON()))
-        }}
+        onUpdate={({ editor }) => handleUpdate(editor)}
+
+        // onTransaction={({transaction }) => {
+        //   console.log(transaction.selection.anchor)
+        // }}
       ></EditorProvider>
     </div>
   );

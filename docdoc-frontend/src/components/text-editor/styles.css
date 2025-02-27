@@ -26,11 +26,11 @@
 .text-editor .tiptap h6{
     font-size: 0.75em;
 }
-.text-editor .tiptap ul{
-    margin-left: 0.75rem;
-}
-.text-editor .tiptap ul,ol {
+/* .text-editor .tiptap ul{
     margin-left: 1rem;
+} */
+.text-editor .tiptap ul,ol {
+    margin-left: 2rem;
 }
 .text-editor .tiptap ul li{
     list-style: circle;
