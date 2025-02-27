@@ -6,7 +6,7 @@ export default function DividerWithOpt() {
   const { addNewDocPart } = useDocEditAreaContext();
 
   return (
-    <div className="my-1 flex justify-center items-center group min-h-24">
+    <div className="transition  my-1 flex justify-center items-center group min-h-8 hover:min-h-24">
       <div className="hidden md:block border-t-4 w-full h-3 "></div>
       <div className="w-full md:w-auto transition-opacity opacity-25 group-hover:opacity-100">
         <div className=" before:border-2 flex border-4 px-8 py-2 rounded-md gap-x-6">
