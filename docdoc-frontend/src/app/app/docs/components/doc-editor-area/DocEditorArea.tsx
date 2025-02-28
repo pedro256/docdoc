@@ -1,3 +1,4 @@
+'use client';
 import {
   DocEditorAreaContextProvider,
   useDocEditAreaContext,
@@ -6,13 +7,18 @@ import TextEditor from "@/components/text-editor/TextEditor";
 import { useForm } from "react-hook-form";
 import DividerWithOpt from "./DividerWithOpt";
 
+import { Input } from "@/components/ui/input";
+import { FaRegFloppyDisk } from "react-icons/fa6";
+import { IoDocumentTextOutline } from "react-icons/io5";
+import DocBaseModel from "@/models/context/DocBase/DocBaseModel";
+
 interface ITest {
   content?: string;
 }
 
-export default function DocEditorArea({ idDoc }: { idDoc?: string }) {
+export default function DocEditorArea({ doc }: { doc: DocBaseModel }) {
   return (
-    <DocEditorAreaContextProvider idDoc={idDoc}>
+    <DocEditorAreaContextProvider idDoc={doc.id}>
       <DocEditorAreaContainer />
     </DocEditorAreaContextProvider>
   );
@@ -23,6 +29,14 @@ function DocEditorAreaContainer() {
 
   return (
     <div>
+      <div className="flex gap-4 items-center ">
+          <IoDocumentTextOutline className="w-12 h-12" />
+          <Input
+            className="!text-xl font-bold"
+            placeholder="Documento Tets 1"
+          />
+          <FaRegFloppyDisk className=" text-green-600 w-8 h-8 opacity-75" />
+        </div>
       <div className="flex my-4 gap-4">
         <div>Arquivo</div>
         <div>Editar</div>
