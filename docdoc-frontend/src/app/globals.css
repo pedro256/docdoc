@@ -13,6 +13,34 @@ body {
   }
 }
 
+p {
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.17em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.83em;
+}
+
+h6 {
+  font-size: 0.75em;
+}
+
 @layer base {
   :root {
 
@@ -66,6 +94,7 @@ body {
 
     --radius: 0.5rem;
   }
+
   .dark {
 
     --background: 0 0% 3.9%;
@@ -122,6 +151,7 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
