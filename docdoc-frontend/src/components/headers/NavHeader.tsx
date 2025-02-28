@@ -22,7 +22,7 @@ export default function NavHeader() {
         }
     }
     return (
-        <div className="flex h-screen">
+        <div className="flex h-screen fixed">
             {/* Barra Lateral */}
             <div className="w-12 flex flex-col items-center justify-between bg-primary py-4 gap-2 text-primary-foreground">
                 <div className="flex flex-col items-center gap-12">

@@ -31,7 +31,7 @@ export function DocEditorAreaContextProvider({children,idDoc}:{idDoc?:string,chi
             ...parts,
             {
                 id:tempId,
-                content:'<p>new area</p>',
+                content:'',
                 referenceDoc:idDoc,
                 sequence:1
             }
