@@ -28,6 +28,7 @@ public class DocumentBAseController {
     public ResponseEntity createDoc(@Valid @RequestBody CreateDocBaseReqDto docBaseReqDto) {
         DocumentBaseDto documentBaseDto = new DocumentBaseDto();
         documentBaseDto.setTitle(docBaseReqDto.title);
+        documentBaseDto.setDocType("DOC");
         UUID id =  docBaseService.createDocumentBase(documentBaseDto);
         HashMap<String, Object> resp = new HashMap<>();
         resp.put("id",id);
