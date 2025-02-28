@@ -1,7 +1,8 @@
+import DocBaseModel from "@/models/context/DocBase/DocBaseModel";
 import React, { useState } from "react";
 
 type DocEditorAreaContextType = {
-  idDoc?: string;
+  doc: DocBaseModel;
   parts: Array<IDocPart>;
   updPart: (id: number, content: string) => void;
   addNewDocPart: () => void;
@@ -20,9 +21,9 @@ export const DocEditorAreaContext = React.createContext(
 
 export function DocEditorAreaContextProvider({
   children,
-  idDoc,
+  doc,
 }: {
-  idDoc?: string;
+  doc: DocBaseModel;
   children: React.ReactNode;
 }) {
   const [parts, setParts] = useState<Array<IDocPart>>([]);
@@ -39,7 +40,7 @@ export function DocEditorAreaContextProvider({
       {
         id: tempId,
         content: "",
-        referenceDoc: idDoc,
+        referenceDoc: doc?.id,
         sequence: 1,
       },
     ]);
@@ -53,7 +54,7 @@ export function DocEditorAreaContextProvider({
   return (
     <DocEditorAreaContext.Provider
       value={{
-        idDoc,
+        doc,
         parts,
         addNewDocPart,
         updPart,

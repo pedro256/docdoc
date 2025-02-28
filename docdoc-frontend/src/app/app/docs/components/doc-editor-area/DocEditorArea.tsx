@@ -18,13 +18,13 @@ interface ITest {
 
 export default function DocEditorArea({ doc }: { doc: DocBaseModel }) {
   return (
-    <DocEditorAreaContextProvider idDoc={doc.id}>
+    <DocEditorAreaContextProvider doc={doc}>
       <DocEditorAreaContainer />
     </DocEditorAreaContextProvider>
   );
 }
 function DocEditorAreaContainer() {
-  const { parts, updPart } = useDocEditAreaContext();
+  const { parts, updPart,doc } = useDocEditAreaContext();
   const { handleSubmit } = useForm<ITest>();
 
   return (
@@ -32,6 +32,7 @@ function DocEditorAreaContainer() {
       <div className="flex gap-4 items-center ">
           <IoDocumentTextOutline className="w-12 h-12" />
           <Input
+          defaultValue={doc.title}
             className="!text-xl font-bold"
             placeholder="Documento Tets 1"
           />
