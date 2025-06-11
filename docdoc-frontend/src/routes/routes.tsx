@@ -1,57 +1,49 @@
-import { FaObjectGroup, FaShareAlt } from "react-icons/fa";
-import { IoDocumentTextOutline } from "react-icons/io5";
-import { FiFilePlus } from "react-icons/fi";
+type format = "link" | "header" | "divider" | "dropdown";
 
-interface NavItem {
-    id: string;
-    content: React.ReactNode;
-    title: string;
-  }
+export interface NavItem {
+  id: string;
+  content?: NavItem[];
+  href?: string;
+  title?: string;
+  icon?: string;
+  format: format;
+}
 
-const navRoutes: Array<NavItem> = [
+
+
+const navRoutes: NavItem[] = [
   {
     id: "new-documents",
-    title: "Novos Documentos",
-    content: (
-      <FiFilePlus
-        data-tooltip-id="basic"
-        data-tooltip-content="Novos Documentos"
-        className="w-8 h-8 focus:outline-0"
-      />
-    ),
+    title: "Documentos",
+    icon: "FiFilePlus",
+    format: "dropdown",
+    content: [
+      {
+        id: "title-doc",
+        title: "Documentos",
+        icon: "FiHome",
+        format: "header",
+      },
+      {
+        id: "mys",
+        title: "Meus Documentos",
+        href: "/app/docs/my",
+        format: "link",
+      },
+      {
+        id: "empty",
+        title: "Documento Vazio",
+        href: "/app/docs/create",
+        format: "link",
+      },
+    ],
   },
   {
     id: "dom",
     title: "Domínio",
-    content: (
-      <FaObjectGroup
-        data-tooltip-id="basic"
-        data-tooltip-content="Domínio"
-        className="w-8 h-8 focus:outline-0"
-      />
-    ),
-  },
-  {
-    id: "docs",
-    title: "Documentos",
-    content: (
-      <IoDocumentTextOutline
-        data-tooltip-id="basic"
-        data-tooltip-content="Documentos"
-        className="w-8 h-8 focus:outline-0"
-      />
-    ),
-  },
-  {
-    id: "shareds",
-    title: "Compartilhados",
-    content: (
-      <FaShareAlt
-        data-tooltip-id="basic"
-        data-tooltip-content="Compartilhados"
-        className="w-8 h-8 focus:outline-0"
-      />
-    ),
+    href: "/app/domains",
+    icon: "FaObjectGroup",
+    format: "link",
   },
 ];
 export default navRoutes;
