@@ -35,7 +35,7 @@ public class DocumentBAseController {
         return ResponseEntity.status(HttpStatus.CREATED).body(resp);
     }
     @PutMapping
-    public ResponseEntity updateDocuments(@Valid @RequestBody UpdateDocBaseRefDto docBaseReqDto) {
+    public ResponseEntity updateDocuments(@Valid @RequestBody UpdateDocBaseRefDto docBaseReqDto) throws NotFoundException {
         DocumentBaseDto documentBaseDto = new DocumentBaseDto();
         documentBaseDto.setId(UUID.fromString(docBaseReqDto.id));
         documentBaseDto.setTitle(docBaseReqDto.title);

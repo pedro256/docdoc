@@ -45,7 +45,7 @@ export default function TextEditor({
   }, 500);
 
   return (
-    <div className="bg-white border rounded text-editor">
+    <div className="bg-white border rounded text-editor h-96">
       <EditorProvider
         slotBefore={<MenuBarEditText />}
         extensions={extensions}

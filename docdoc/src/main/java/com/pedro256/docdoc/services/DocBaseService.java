@@ -8,10 +8,7 @@ import com.pedro256.docdoc.repository.docbase.IDocBaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class DocBaseService {
@@ -23,11 +20,17 @@ public class DocBaseService {
         DocumentBaseEntity docBaseEtt = new DocumentBaseEntity();
         docBaseEtt.setTitle(documentBaseDto.getTitle());
         docBaseEtt.setDocType(documentBaseDto.getDocType());
+        Map<String, Object> json = new HashMap<>();
+        docBaseEtt.setConteudo(json);
         this.iDocBaseRepository.save(docBaseEtt);
         return  docBaseEtt.getId();
     }
-    public UUID updateDocumentBase(DocumentBaseDto documentBaseDto){
-        DocumentBaseEntity docBaseEtt = new DocumentBaseEntity();
+    public UUID updateDocumentBase(DocumentBaseDto documentBaseDto) throws NotFoundException{
+        Optional<DocumentBaseEntity> existing = this.iDocBaseRepository.findById(documentBaseDto.getId());
+        if(existing.isEmpty()){
+            throw new NotFoundException("Documento não encontrado");
+        }
+        DocumentBaseEntity docBaseEtt = existing.get();
         docBaseEtt.setId(documentBaseDto.getId());
         docBaseEtt.setTitle(documentBaseDto.getTitle());
         docBaseEtt.setDocType(documentBaseDto.getDocType());

@@ -63,7 +63,7 @@ function DocEditorAreaContainer() {
             <div className="select-none flex px-4 text-xs text-gray-400 font-bold italic">
               <p>id: {p.id}</p>
             </div>
-            <DividerWithOpt />
+            {/* <DividerWithOpt /> */}
           </div>
         ))}
       </form>

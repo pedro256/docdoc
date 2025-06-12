@@ -41,6 +41,7 @@ CREATE TABLE documents (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     doc_type VARCHAR(50) NOT NULL,
     title VARCHAR(255) NOT NULL,
+    conteudo JSONB NOT NULL,
     created_at TIMESTAMPTZ  DEFAULT NOW(),
   	updated_at TIMESTAMPTZ DEFAULT NOW()
 );
@@ -54,13 +55,14 @@ CREATE TABLE doc_infolder (
   	updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
-CREATE TABLE document_part (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    reference_doc UUID REFERENCES documents(id),
-    conteudo JSONB NOT NULL,
-    created_at TIMESTAMPTZ DEFAULT NOW(),
-  	updated_at TIMESTAMPTZ DEFAULT NOW()
-);
+
+-- CREATE TABLE document_part (
+--     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+--     reference_doc UUID REFERENCES documents(id),
+--     conteudo JSONB NOT NULL,
+--     created_at TIMESTAMPTZ DEFAULT NOW(),
+--   	updated_at TIMESTAMPTZ DEFAULT NOW()
+-- );
 
 
 -- -- Tabela: document_variant
